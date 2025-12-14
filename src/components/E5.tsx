@@ -1,4 +1,11 @@
-import { BookOpen, CheckCircle, Download, FileSpreadsheet, FileText } from "lucide-react";
+import {
+  BookOpen,
+  CheckCircle,
+  Download,
+  FileSpreadsheet,
+  FileText,
+  Building2
+} from "lucide-react";
 
 /* =======================
    TYPES
@@ -14,7 +21,7 @@ interface Mission {
 }
 
 /* =======================
-   MISSIONS
+   MISSIONS E5
 ======================= */
 const missions: Mission[] = [
   {
@@ -140,19 +147,65 @@ export default function E5() {
             Dossier professionnel – Épreuve E5
           </h2>
           <p className="text-slate-300 max-w-3xl mx-auto text-sm md:text-base">
-            Présentation des missions réalisées et du tableau de synthèse officiel demandé par le jury.
+            Présentation des missions principales, de l’alternance et du tableau de synthèse officiel.
           </p>
         </div>
 
         {/* MISSIONS */}
-        <div className="space-y-6 mb-16">
+        <div className="space-y-6 mb-20">
           {missions.map((m) => (
             <MissionCard key={m.id} mission={m} />
           ))}
         </div>
 
-        {/* TABLEAU DE SYNTHÈSE */}
-        <section className="mt-12">
+        {/* =======================
+            ENTREPRISE / ALTERNANCE
+        ======================= */}
+        <section className="mb-20">
+          <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-2">
+            <Building2 className="w-6 h-6 text-cyan-300" />
+            Entreprise / Alternance
+          </h3>
+
+          <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-7 shadow-lg">
+            <p className="text-slate-200 mb-4 leading-relaxed">
+              Dans le cadre de mon <strong>BTS SIO option SISR</strong>, je réalise
+              mon alternance au sein de l’entreprise <strong>Rely</strong>
+              (joint-venture entre <strong>Technip Energies</strong> et
+              <strong> John Cockerill Hydrogen</strong>) en tant que
+              <strong> IT Support</strong>.
+            </p>
+
+            <p className="text-slate-200 mb-4 leading-relaxed">
+              Cette expérience professionnelle m’a permis de mobiliser de
+              nombreuses compétences figurant dans le tableau de synthèse,
+              en complément des trois missions E5 détaillées ci-dessus.
+            </p>
+
+            <h4 className="text-cyan-300 font-semibold mb-2">
+              Activités professionnelles réalisées
+            </h4>
+
+            <ul className="space-y-2 text-sm text-slate-100">
+              <li>• Support utilisateurs niveau 1 et 2 (incidents et demandes)</li>
+              <li>• Gestion de comptes et groupes Active Directory</li>
+              <li>• Préparation, configuration et maintenance de postes</li>
+              <li>• Rédaction de procédures et documentation technique</li>
+              <li>• Participation à la sécurisation des accès et des postes</li>
+              <li>• Veille technologique et montée en compétences</li>
+            </ul>
+
+            <p className="text-slate-400 text-xs mt-4">
+              Ces activités justifient les compétences renseignées dans le
+              tableau de synthèse (Annexe 8-1) et pourront être détaillées à l’oral.
+            </p>
+          </div>
+        </section>
+
+        {/* =======================
+            TABLEAU DE SYNTHÈSE
+        ======================= */}
+        <section>
           <h3 className="text-2xl font-semibold text-white mb-6 text-center">
             Tableau de synthèse – Annexe 8-1 (Épreuve E5)
           </h3>
@@ -180,11 +233,7 @@ export default function E5() {
           </div>
 
           {/* Aperçu PDF */}
-          <div className="bg-slate-900/60 border border-white/10 rounded-2xl p-4 mb-8">
-            <h4 className="text-white font-semibold mb-3">
-              Aperçu du tableau de synthèse
-            </h4>
-
+          <div className="bg-slate-900/60 border border-white/10 rounded-2xl p-4">
             <div className="relative w-full h-[800px] rounded-xl overflow-hidden border border-white/10">
               <iframe
                 src="/e5/annexe8-1_tableau_synthese.pdf"
@@ -192,10 +241,6 @@ export default function E5() {
                 className="w-full h-full"
               />
             </div>
-
-            <p className="text-slate-400 text-xs mt-3">
-              (Si le PDF ne s’affiche pas, utilisez les boutons ci-dessus pour l’ouvrir ou le télécharger.)
-            </p>
           </div>
         </section>
 
