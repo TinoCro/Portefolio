@@ -176,35 +176,29 @@ export default function E5() {
               <strong> IT Support</strong>.
             </p>
 
-            <p className="text-slate-200 mb-4 leading-relaxed">
-              Cette expérience m’a permis de mobiliser de nombreuses compétences
-              figurant dans le tableau de synthèse, en complément des trois
-              missions E5 détaillées ci-dessus.
-            </p>
-
             <h4 className="text-cyan-300 font-semibold mb-2">
               Activités professionnelles réalisées
             </h4>
 
-            <ul className="space-y-2 text-sm text-slate-100">
+            <ul className="space-y-2 text-sm text-slate-100 mb-6">
               <li>• Support utilisateurs niveau 1 et 2</li>
-              <li>• Gestion de comptes et groupes Active Directory</li>
-              <li>• Préparation et maintenance de postes</li>
-              <li>• Rédaction de documentation et procédures IT</li>
-              <li>• Participation à la sécurisation des accès</li>
+              <li>• Gestion de comptes et accès Active Directory / SharePoint</li>
+              <li>• Installation et configuration de logiciels métier</li>
+              <li>• Gestion des licences et du parc matériel</li>
+              <li>• Formation et accompagnement des utilisateurs</li>
             </ul>
 
             {/* PROCÉDURE ONBOARDING */}
-            <div className="mt-6 border-t border-white/10 pt-6">
+            <div className="border-t border-white/10 pt-6 mb-6">
               <h4 className="text-cyan-300 font-semibold mb-2">
                 Procédure d’onboarding IT – Rely
               </h4>
 
               <p className="text-slate-200 text-sm mb-4 leading-relaxed">
                 J’ai rédigé une procédure d’onboarding IT destinée à accompagner
-                l’arrivée des nouveaux collaborateurs. Elle vise à standardiser
-                l’accès aux services informatiques et à réduire les demandes
-                récurrentes adressées au support IT.
+                l’arrivée des nouveaux collaborateurs. Elle permet de
+                standardiser l’accès aux services informatiques et de réduire
+                les demandes récurrentes adressées au support IT.
               </p>
 
               <a
@@ -215,10 +209,29 @@ export default function E5() {
               >
                 📄 Consulter la procédure d’onboarding IT (PDF)
               </a>
+            </div>
 
-              <p className="text-slate-400 text-xs mt-2">
-                (Document interne – extrait présenté à titre illustratif)
+            {/* FORMATION PAPERBOARD */}
+            <div className="border-t border-white/10 pt-6">
+              <h4 className="text-cyan-300 font-semibold mb-2">
+                Formation à l’utilisation du paperboard numérique Samsung
+              </h4>
+
+              <p className="text-slate-200 text-sm mb-4 leading-relaxed">
+                J’ai également animé une formation à destination de plusieurs
+                utilisateurs sur l’utilisation du paperboard numérique Samsung,
+                afin de faciliter son adoption et son usage lors des réunions et
+                sessions collaboratives.
               </p>
+
+              <a
+                href="/entreprise/rely_formation_paperboard_samsung.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/60 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-100 hover:bg-cyan-500/20 transition"
+              >
+                📄 Consulter le support de formation (PDF)
+              </a>
             </div>
           </div>
         </section>
