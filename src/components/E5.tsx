@@ -4,7 +4,7 @@ import {
   Download,
   FileSpreadsheet,
   FileText,
-  Building2
+  Building2,
 } from "lucide-react";
 
 /* =======================
@@ -28,45 +28,45 @@ const missions: Mission[] = [
     id: 1,
     title: "Mission 1 – Restructuration de l’infrastructure réseau",
     context:
-      "Modernisation de l’infrastructure réseau avec segmentation VLAN et routage inter-VLAN.",
+      "Modernisation de l’infrastructure réseau avec segmentation VLAN et routage inter-VLAN afin d’améliorer la sécurité et la communication entre les services.",
     tasks: [
-      "Analyse du cahier des charges",
-      "Création des VLANs",
-      "Routage inter-VLAN",
-      "Tests de connectivité"
+      "Analyse du cahier des charges et de l’architecture existante",
+      "Création et configuration des VLANs",
+      "Mise en place du routage inter-VLAN",
+      "Tests de connectivité et validation",
     ],
-    environment: "Cisco Packet Tracer, routeurs & switchs Cisco",
+    environment: "Cisco Packet Tracer, routeurs et switchs Cisco",
     file: "/missions/mission1.pdf",
-    ciscoFile: "/missions/mission1_stadiumcompany.pkt"
+    ciscoFile: "/missions/mission1_stadiumcompany.pkt",
   },
   {
     id: 2,
     title: "Mission 2 – Administration Active Directory",
     context:
-      "Mise en place d’un domaine Active Directory avec DNS et DHCP.",
+      "Déploiement et administration d’un domaine Active Directory avec les services DNS et DHCP afin de centraliser la gestion des utilisateurs et des ressources.",
     tasks: [
-      "Installation AD DS",
-      "Création des OU",
-      "Gestion des comptes et GPO",
-      "Tests DNS/DHCP"
+      "Installation des rôles AD DS, DNS et DHCP",
+      "Création du domaine et des unités d’organisation",
+      "Gestion des comptes utilisateurs et groupes",
+      "Mise en place de stratégies GPO",
     ],
     environment: "Windows Server 2022, Active Directory",
-    file: "/missions/mission2.pdf"
+    file: "/missions/mission2.pdf",
   },
   {
     id: 3,
     title: "Mission 3 – Sécurisation réseau et VPN IPsec",
     context:
-      "Sécurisation de l’administration réseau et des échanges inter-sites.",
+      "Sécurisation de l’administration réseau et des échanges inter-sites par la mise en place de SSH et d’un tunnel VPN IPsec.",
     tasks: [
-      "Remplacement Telnet par SSH",
-      "Génération de clés RSA",
-      "Configuration VPN IPsec",
-      "Tests et vérifications"
+      "Analyse des risques liés à Telnet",
+      "Activation de l’administration sécurisée via SSH",
+      "Configuration d’un tunnel VPN IPsec site-à-site",
+      "Tests et vérifications de la sécurité",
     ],
     environment: "Cisco Packet Tracer, routeurs Cisco ISR",
-    file: "/missions/mission3.pdf"
-  }
+    file: "/missions/mission3.pdf",
+  },
 ];
 
 /* =======================
@@ -170,16 +170,16 @@ export default function E5() {
           <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-7 shadow-lg">
             <p className="text-slate-200 mb-4 leading-relaxed">
               Dans le cadre de mon <strong>BTS SIO option SISR</strong>, je réalise
-              mon alternance au sein de l’entreprise <strong>Rely</strong>
-              (joint-venture entre <strong>Technip Energies</strong> et
-              <strong> John Cockerill Hydrogen</strong>) en tant que
+              mon alternance au sein de l’entreprise <strong>Rely</strong>,
+              joint-venture entre <strong>Technip Energies</strong> et
+              <strong> John Cockerill Hydrogen</strong>, en tant que
               <strong> IT Support</strong>.
             </p>
 
             <p className="text-slate-200 mb-4 leading-relaxed">
-              Cette expérience professionnelle m’a permis de mobiliser de
-              nombreuses compétences figurant dans le tableau de synthèse,
-              en complément des trois missions E5 détaillées ci-dessus.
+              Cette expérience m’a permis de mobiliser de nombreuses compétences
+              figurant dans le tableau de synthèse, en complément des trois
+              missions E5 détaillées ci-dessus.
             </p>
 
             <h4 className="text-cyan-300 font-semibold mb-2">
@@ -187,18 +187,39 @@ export default function E5() {
             </h4>
 
             <ul className="space-y-2 text-sm text-slate-100">
-              <li>• Support utilisateurs niveau 1 et 2 (incidents et demandes)</li>
+              <li>• Support utilisateurs niveau 1 et 2</li>
               <li>• Gestion de comptes et groupes Active Directory</li>
-              <li>• Préparation, configuration et maintenance de postes</li>
-              <li>• Rédaction de procédures et documentation technique</li>
-              <li>• Participation à la sécurisation des accès et des postes</li>
-              <li>• Veille technologique et montée en compétences</li>
+              <li>• Préparation et maintenance de postes</li>
+              <li>• Rédaction de documentation et procédures IT</li>
+              <li>• Participation à la sécurisation des accès</li>
             </ul>
 
-            <p className="text-slate-400 text-xs mt-4">
-              Ces activités justifient les compétences renseignées dans le
-              tableau de synthèse (Annexe 8-1) et pourront être détaillées à l’oral.
-            </p>
+            {/* PROCÉDURE ONBOARDING */}
+            <div className="mt-6 border-t border-white/10 pt-6">
+              <h4 className="text-cyan-300 font-semibold mb-2">
+                Procédure d’onboarding IT – Rely
+              </h4>
+
+              <p className="text-slate-200 text-sm mb-4 leading-relaxed">
+                J’ai rédigé une procédure d’onboarding IT destinée à accompagner
+                l’arrivée des nouveaux collaborateurs. Elle vise à standardiser
+                l’accès aux services informatiques et à réduire les demandes
+                récurrentes adressées au support IT.
+              </p>
+
+              <a
+                href="/entreprise/rely_onboarding_it.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/60 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-100 hover:bg-cyan-500/20 transition"
+              >
+                📄 Consulter la procédure d’onboarding IT (PDF)
+              </a>
+
+              <p className="text-slate-400 text-xs mt-2">
+                (Document interne – extrait présenté à titre illustratif)
+              </p>
+            </div>
           </div>
         </section>
 
@@ -210,7 +231,6 @@ export default function E5() {
             Tableau de synthèse – Annexe 8-1 (Épreuve E5)
           </h3>
 
-          {/* Boutons */}
           <div className="flex flex-col items-center gap-4 mb-6">
             <a
               href="/e5/annexe8-1_tableau_synthese.xlsx"
@@ -232,7 +252,6 @@ export default function E5() {
             </a>
           </div>
 
-          {/* Aperçu PDF */}
           <div className="bg-slate-900/60 border border-white/10 rounded-2xl p-4">
             <div className="relative w-full h-[800px] rounded-xl overflow-hidden border border-white/10">
               <iframe
