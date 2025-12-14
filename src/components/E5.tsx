@@ -1,9 +1,4 @@
-import {
-  BookOpen,
-  CheckCircle,
-  Download,
-  FileSpreadsheet
-} from "lucide-react";
+import { BookOpen, CheckCircle, Download, FileSpreadsheet, FileText } from "lucide-react";
 
 /* =======================
    TYPES
@@ -68,7 +63,7 @@ const missions: Mission[] = [
 ];
 
 /* =======================
-   COMPOSANT MISSION
+   CARTE MISSION
 ======================= */
 function MissionCard({ mission }: { mission: Mission }) {
   return (
@@ -129,63 +124,6 @@ function MissionCard({ mission }: { mission: Mission }) {
 }
 
 /* =======================
-   TABLEAU DE SYNTHÈSE (comme ta capture)
-======================= */
-function TableauSynthese() {
-  return (
-    <section className="mt-16">
-      <h3 className="text-xl font-semibold text-white mb-4">
-        Tableau de synthèse – Épreuve E5
-      </h3>
-
-      {/* 🔥 BOUTON EXCEL VISIBLE */}
-      <div className="flex justify-center mb-6">
-        <a
-          href="/e5/annexe8-1_tableau_synthese.xlsx"
-          download
-          className="inline-flex items-center gap-3 rounded-2xl border border-emerald-400/60 bg-emerald-500/15 px-6 py-3 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/25 transition"
-        >
-          <FileSpreadsheet className="w-5 h-5" />
-          Télécharger le tableau officiel (Excel – Annexe 8-1)
-        </a>
-      </div>
-
-      <div className="overflow-x-auto bg-slate-950/70 border border-white/10 rounded-2xl p-4">
-        <table className="min-w-full text-sm">
-          <thead>
-            <tr className="text-slate-400 uppercase text-xs">
-              <th className="text-left py-2">Compétences</th>
-              <th className="text-center">Mission 1</th>
-              <th className="text-center">Mission 2</th>
-              <th className="text-center">Mission 3</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td colSpan={4} className="pt-4 text-cyan-300 font-semibold">A1 – Support et mise à disposition</td></tr>
-            <tr><td>A1.1.1</td><td className="text-center">✓</td><td className="text-center">✓</td><td className="text-center">✓</td></tr>
-            <tr><td>A1.2.1</td><td></td><td className="text-center">✓</td><td></td></tr>
-            <tr><td>A1.2.3</td><td className="text-center">✓</td><td className="text-center">✓</td><td className="text-center">✓</td></tr>
-
-            <tr><td colSpan={4} className="pt-4 text-cyan-300 font-semibold">A2 – Conception et maintenance</td></tr>
-            <tr><td>A2.3.1</td><td className="text-center">✓</td><td className="text-center">✓</td><td className="text-center">✓</td></tr>
-
-            <tr><td colSpan={4} className="pt-4 text-cyan-300 font-semibold">A3 – Cybersécurité</td></tr>
-            <tr><td>A3.2.1</td><td></td><td className="text-center">✓</td><td></td></tr>
-
-            <tr><td colSpan={4} className="pt-4 text-cyan-300 font-semibold">A4 – Gestion du patrimoine</td></tr>
-            <tr><td>A4.1.1</td><td className="text-center">✓</td><td className="text-center">✓</td><td className="text-center">✓</td></tr>
-
-            <tr><td colSpan={4} className="pt-4 text-cyan-300 font-semibold">A5 – Pilotage de projets</td></tr>
-            <tr><td>A5.1.2</td><td></td><td className="text-center">✓</td><td></td></tr>
-            <tr><td>A5.2.1</td><td></td><td></td><td className="text-center">✓</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-  );
-}
-
-/* =======================
    PAGE E5
 ======================= */
 export default function E5() {
@@ -193,7 +131,7 @@ export default function E5() {
     <section id="e5" className="py-24 px-4">
       <div className="max-w-6xl mx-auto">
 
-        {/* TITRE COMME E6 */}
+        {/* TITRE */}
         <div className="text-center mb-12">
           <p className="text-sm font-semibold text-cyan-300 uppercase tracking-[0.25em]">
             Épreuve E5 – Support et mise à disposition de services informatiques
@@ -207,14 +145,60 @@ export default function E5() {
         </div>
 
         {/* MISSIONS */}
-        <div className="space-y-6">
+        <div className="space-y-6 mb-16">
           {missions.map((m) => (
             <MissionCard key={m.id} mission={m} />
           ))}
         </div>
 
-        {/* TABLEAU */}
-        <TableauSynthese />
+        {/* TABLEAU DE SYNTHÈSE */}
+        <section className="mt-12">
+          <h3 className="text-2xl font-semibold text-white mb-6 text-center">
+            Tableau de synthèse – Annexe 8-1 (Épreuve E5)
+          </h3>
+
+          {/* Boutons */}
+          <div className="flex flex-col items-center gap-4 mb-6">
+            <a
+              href="/e5/annexe8-1_tableau_synthese.xlsx"
+              download
+              className="inline-flex items-center gap-3 rounded-2xl border border-emerald-400/60 bg-emerald-500/15 px-6 py-3 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/25 transition"
+            >
+              <FileSpreadsheet className="w-5 h-5" />
+              Télécharger le tableau officiel (Excel – Annexe 8-1)
+            </a>
+
+            <a
+              href="/e5/annexe8-1_tableau_synthese.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 rounded-2xl border border-cyan-400/60 bg-cyan-500/10 px-6 py-3 text-sm font-semibold text-cyan-100 hover:bg-cyan-500/15 transition"
+            >
+              <FileText className="w-5 h-5" />
+              Ouvrir le tableau de synthèse (PDF)
+            </a>
+          </div>
+
+          {/* Aperçu PDF */}
+          <div className="bg-slate-900/60 border border-white/10 rounded-2xl p-4 mb-8">
+            <h4 className="text-white font-semibold mb-3">
+              Aperçu du tableau de synthèse
+            </h4>
+
+            <div className="relative w-full h-[800px] rounded-xl overflow-hidden border border-white/10">
+              <iframe
+                src="/e5/annexe8-1_tableau_synthese.pdf"
+                title="Tableau de synthèse E5"
+                className="w-full h-full"
+              />
+            </div>
+
+            <p className="text-slate-400 text-xs mt-3">
+              (Si le PDF ne s’affiche pas, utilisez les boutons ci-dessus pour l’ouvrir ou le télécharger.)
+            </p>
+          </div>
+        </section>
+
       </div>
     </section>
   );
