@@ -1,4 +1,4 @@
-import { Download, GraduationCap, Server, User, FileText } from "lucide-react";
+import { FileText, Linkedin, GraduationCap } from "lucide-react";
 
 export default function APropos() {
   return (
@@ -6,113 +6,130 @@ export default function APropos() {
       <div className="max-w-5xl mx-auto">
 
         {/* TITRE */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-12">
           <p className="text-sm font-semibold text-cyan-300 uppercase tracking-[0.25em]">
             À propos
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
-            Profil, formation et projet professionnel
+            Présentation & parcours
           </h2>
-          <p className="text-slate-300 max-w-3xl mx-auto text-sm md:text-base">
-            Présentation de mon parcours, de ma formation en BTS SIO et de mon
-            orientation en administration systèmes et réseaux.
+          <p className="text-slate-300 max-w-2xl mx-auto">
+            Étudiant en BTS SIO option SISR, orienté administration systèmes,
+            réseaux et cybersécurité.
           </p>
         </div>
 
-        {/* ================= PROFIL ================= */}
-        <div className="bg-slate-900/80 border border-white/10 rounded-2xl p-7 mb-14 shadow-lg">
-          <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-            <User className="w-5 h-5 text-cyan-300" />
-            Mon profil
-          </h3>
-
-          <p className="text-slate-200 mb-5 leading-relaxed">
-            Je m’appelle <strong className="text-white">Tino Franic</strong>,
-            étudiant en <strong>BTS Services Informatiques aux Organisations</strong>,
-            option <strong>SISR</strong>.  
-            Je suis actuellement en <strong>alternance IT Support</strong>, avec
-            un fort intérêt pour l’administration système, réseau et la cybersécurité.
+        {/* PRÉSENTATION */}
+        <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-8 shadow-lg mb-16">
+          <p className="text-slate-200 leading-relaxed mb-4">
+            Je m’appelle <strong>Tino Franic</strong>, étudiant en{" "}
+            <strong>BTS Services Informatiques aux Organisations (SIO)</strong>,
+            option <strong>SISR</strong>. Je me forme à l’administration des
+            systèmes et des réseaux, à la sécurisation des infrastructures et au
+            support informatique.
           </p>
 
-          {/* Bouton téléchargement */}
-          <a
-            href="/cv/FRANIC_TINO_CV.pdf"
-            download
-            className="inline-flex items-center gap-3 rounded-xl border border-emerald-400/60 bg-emerald-500/15 px-5 py-3 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/25 transition"
-          >
-            <Download className="w-5 h-5" />
-            Télécharger mon CV (PDF)
-          </a>
-        </div>
+          <p className="text-slate-200 leading-relaxed mb-4">
+            Je réalise actuellement mon alternance au sein de l’entreprise{" "}
+            <strong>Rely</strong>, joint-venture entre{" "}
+            <strong>Technip Energies</strong> et{" "}
+            <strong>John Cockerill Hydrogen</strong>, en tant que{" "}
+            <strong>IT Support</strong>. Cette expérience me permet de
+            développer des compétences techniques et professionnelles en
+            environnement réel.
+          </p>
 
-        {/* ================= CV INTÉGRÉ ================= */}
-        <div className="bg-slate-900/80 border border-white/10 rounded-2xl p-6 mb-16 shadow-lg">
-          <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-            <FileText className="w-5 h-5 text-emerald-300" />
-            Aperçu de mon CV
-          </h3>
-
-          <div className="relative w-full h-[800px] rounded-xl overflow-hidden border border-white/10">
-            <iframe
-              src="/cv/FRANIC_TINO_CV.pdf"
-              title="CV Tino Franic"
-              className="w-full h-full"
-            />
-          </div>
-
-          <p className="text-slate-400 text-xs mt-3">
-            (Si le PDF ne s’affiche pas, utilisez le bouton de téléchargement ci-dessus.)
+          <p className="text-slate-200 leading-relaxed">
+            Mon objectif est de poursuivre dans les domaines des{" "}
+            <strong>systèmes, réseaux et de la cybersécurité</strong>, avec une
+            approche rigoureuse, orientée sécurité et qualité de service.
           </p>
         </div>
 
-        {/* ================= FORMATION ================= */}
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* CV + LINKEDIN */}
+        <div className="grid md:grid-cols-2 gap-10 mb-20">
 
-          {/* BTS SIO */}
-          <div className="bg-slate-900/80 border border-white/10 rounded-2xl p-7 shadow-lg">
+          {/* CV */}
+          <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-6 shadow-lg">
             <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-              <GraduationCap className="w-5 h-5 text-cyan-300" />
-              Le BTS SIO
+              <FileText className="w-5 h-5 text-cyan-300" />
+              Curriculum Vitae
             </h3>
 
-            <p className="text-slate-200 text-sm leading-relaxed">
-              Le <strong>BTS Services Informatiques aux Organisations (SIO)</strong>
-              est une formation Bac+2 qui prépare aux métiers de l’informatique
-              en entreprise, en répondant aux besoins des organisations en matière
-              de services numériques.
+            <p className="text-slate-200 text-sm mb-4">
+              Mon CV présente mon parcours scolaire, mes expériences
+              professionnelles et mes compétences techniques.
             </p>
 
-            <ul className="mt-4 space-y-2 text-sm text-slate-100">
-              <li>• Support et assistance aux utilisateurs</li>
-              <li>• Administration des systèmes et des réseaux</li>
-              <li>• Cybersécurité des services informatiques</li>
-              <li>• Culture économique, juridique et managériale</li>
-            </ul>
+            <a
+              href="/cv/FRANIC_TINO_BTS_SIO.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/60 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-100 hover:bg-cyan-500/20 transition mb-4"
+            >
+              📄 Télécharger mon CV (PDF)
+            </a>
+
+            <div className="relative w-full h-[500px] rounded-xl overflow-hidden border border-white/10">
+              <iframe
+                src="/cv/FRANIC_TINO_BTS_SIO.pdf"
+                title="CV Tino Franic"
+                className="w-full h-full"
+              />
+            </div>
           </div>
 
-          {/* OPTION SISR */}
-          <div className="bg-slate-900/80 border border-white/10 rounded-2xl p-7 shadow-lg">
+          {/* LINKEDIN */}
+          <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-6 shadow-lg">
             <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-              <Server className="w-5 h-5 text-emerald-300" />
-              Option SISR
+              <Linkedin className="w-5 h-5 text-cyan-300" />
+              Profil LinkedIn
             </h3>
 
-            <p className="text-slate-200 text-sm leading-relaxed">
-              L’option <strong>SISR (Solutions d’Infrastructure, Systèmes et Réseaux)</strong>
-              est orientée vers la mise en place, l’administration et la sécurisation
-              des infrastructures informatiques.
+            <p className="text-slate-200 text-sm mb-4">
+              J’utilise LinkedIn comme outil de développement professionnel afin
+              de valoriser mon parcours, suivre l’actualité du secteur
+              informatique et maintenir un réseau professionnel.
             </p>
 
-            <ul className="mt-4 space-y-2 text-sm text-slate-100">
-              <li>• Administration de serveurs Windows et Linux</li>
-              <li>• Gestion des réseaux (VLAN, routage, VPN)</li>
-              <li>• Déploiement de services (AD, DNS, DHCP)</li>
-              <li>• Sécurisation des accès et des systèmes</li>
-              <li>• Support technique et résolution d’incidents</li>
-            </ul>
+            <a
+              href="https://www.linkedin.com/in/tinofranic"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/60 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-100 hover:bg-cyan-500/20 transition"
+            >
+              🔗 Consulter mon profil LinkedIn
+            </a>
           </div>
-
         </div>
+
+        {/* BTS SIO */}
+        <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-8 shadow-lg">
+          <h3 className="text-2xl font-semibold text-white mb-4 flex items-center gap-2">
+            <GraduationCap className="w-6 h-6 text-cyan-300" />
+            BTS SIO – Option SISR
+          </h3>
+
+          <p className="text-slate-200 leading-relaxed mb-4">
+            Le <strong>BTS Services Informatiques aux Organisations</strong> forme
+            des professionnels capables de gérer, maintenir et sécuriser des
+            infrastructures informatiques au sein des entreprises.
+          </p>
+
+          <p className="text-slate-200 leading-relaxed mb-4">
+            L’option <strong>SISR (Solutions d’Infrastructure, Systèmes et
+            Réseaux)</strong> est orientée vers l’administration des systèmes,
+            la gestion des réseaux, la virtualisation, la cybersécurité et le
+            support informatique.
+          </p>
+
+          <p className="text-slate-200 leading-relaxed">
+            Cette formation me permet d’acquérir des compétences solides en
+            environnements Windows et Linux, en réseaux Cisco, ainsi qu’en
+            sécurisation des systèmes d’information.
+          </p>
+        </div>
+
       </div>
     </section>
   );
