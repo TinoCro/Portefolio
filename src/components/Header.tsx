@@ -8,10 +8,9 @@ export default function Header() {
   const menuItems = [
     { path: '/', label: 'Accueil' },
     { path: '/a-propos', label: 'À propos' },
-    { path: '/competences', label: 'Compétences' },
     { path: '/entreprise', label: 'Entreprise' },
-    { path: '/e5', label: 'E5' },
-    { path: '/e6', label: 'E6' },
+    { path: '/e5', label: 'Épreuve E5' },
+    { path: '/e6', label: 'Épreuve E6' },
     { path: '/veille-technologique', label: 'Veille technologique' },
     { path: '/contact', label: 'Contact' },
   ];
@@ -32,7 +31,9 @@ export default function Header() {
               <NavLink
                 key={item.path}
                 to={item.path}
-                className={({ isActive }) => `${linkBaseClasses} ${isActive ? 'text-cyan-300' : 'text-slate-200'}`}
+                className={({ isActive }) =>
+                  `${linkBaseClasses} ${isActive ? 'text-cyan-300' : 'text-slate-200'}`
+                }
               >
                 {item.label}
               </NavLink>

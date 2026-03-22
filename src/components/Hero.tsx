@@ -1,4 +1,3 @@
-import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Hero() {
@@ -24,12 +23,6 @@ export default function Hero() {
               Passionné par les réseaux, les systèmes et la cybersécurité. Je recherche une opportunité pour mettre en pratique mes compétences et développer mon expertise technique.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link
-                to="/competences"
-                className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl font-semibold shadow-lg shadow-cyan-500/30 hover:-translate-y-0.5 transition-transform"
-              >
-                Voir mes projets
-              </Link>
               <Link
                 to="/contact"
                 className="px-8 py-3 bg-white/10 text-white border border-white/20 rounded-xl font-semibold hover:bg-white/15 transition-colors"
@@ -74,12 +67,6 @@ export default function Hero() {
                 </li>
               </ul>
             </div>
-          </div>
-        </div>
-
-        <div className="mt-16 flex justify-center">
-          <div className="animate-bounce">
-            <ChevronDown className="w-8 h-8 text-slate-400" />
           </div>
         </div>
       </div>

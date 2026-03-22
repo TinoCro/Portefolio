@@ -1,121 +1,123 @@
-import { Server, ShieldCheck, Network, FileText } from "lucide-react";
+import { FileText, FolderOpen, ExternalLink } from "lucide-react";
+
+interface RealisationLink {
+  label: string;
+  href: string;
+}
+
+interface Realisation {
+  title: string;
+  links: RealisationLink[];
+}
+
+const realisations: Realisation[] = [
+  {
+    title: "Réalisation Professionnelle 1",
+    links: [
+      {
+        label: "Mise en place d’une zone d’échange logistique sécurisée",
+        href: "/e6/Fiche_Descriptive_1.pdf",
+      },
+      {
+        label: "Fiche technique Réalisation professionnelle 1",
+        href: "/e6/fiche-technique-rp1.pdf",
+      },
+    ],
+  },
+  {
+    title: "Réalisation Professionnelle 2",
+    links: [
+      {
+        label: "Suivi, inventaire et supervision des équipements logistiques",
+        href: "/e6/Fiche_Descriptive_2.pdf",
+      },
+      {
+        label: "Fiche technique Réalisation professionnelle 2",
+        href: "/e6/fiche-technique-rp2.pdf",
+      },
+    ],
+  },
+];
 
 export default function E6() {
   return (
     <section id="e6" className="py-24 px-4">
       <div className="max-w-5xl mx-auto">
-        {/* Titre */}
-        <div className="text-center mb-12">
-          <p className="text-sm font-semibold text-cyan-300 uppercase tracking-[0.25em]">
-            Épreuve E6 – Administration des systèmes et des réseaux
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
-            Projet technique – Mise en place d’une solution GLPI
-          </h2>
-          <p className="text-slate-300 max-w-3xl mx-auto">
-            Cette section présente un projet mené dans le cadre de ma formation
-            BTS SIO option SISR, portant sur la mise en place d’une solution de
-            gestion de parc informatique et de support IT.
-          </p>
-        </div>
+        <div className="bg-slate-900/70 border border-white/10 rounded-3xl p-8 md:p-10 shadow-xl">
+          <div className="mb-12">
+            <p className="text-sm font-semibold text-cyan-300 uppercase tracking-[0.25em] mb-3">
+              Épreuve E6
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Dossier professionnel – Épreuve E6
+            </h2>
 
-        {/* Contexte */}
-        <div className="bg-slate-900/80 border border-white/10 rounded-2xl p-6 mb-8">
-          <h3 className="text-xl font-semibold text-cyan-300 mb-3 flex items-center gap-2">
-            <Server className="w-5 h-5" />
-            Contexte et besoins
-          </h3>
-          <p className="text-slate-200 text-sm leading-relaxed">
-            Dans un contexte d’entreprise disposant de nombreux postes,
-            utilisateurs et équipements réseau, il est nécessaire de disposer
-            d’un outil centralisé permettant la gestion du parc informatique,
-            le suivi des incidents et l’assistance aux utilisateurs.
-            <br /><br />
-            L’objectif était de déployer une solution fiable, sécurisée et
-            utilisée en milieu professionnel afin de répondre à ces besoins.
-          </p>
-        </div>
+            <h3 className="text-2xl font-semibold text-cyan-300 mb-5">
+              Résumé de l'épreuve :
+            </h3>
 
-        {/* Solution */}
-        <div className="bg-slate-900/80 border border-white/10 rounded-2xl p-6 mb-8">
-          <h3 className="text-xl font-semibold text-cyan-300 mb-3 flex items-center gap-2">
-            <Network className="w-5 h-5" />
-            Solution retenue
-          </h3>
-          <p className="text-slate-200 text-sm leading-relaxed">
-            La solution choisie est <strong>GLPI</strong>, un outil open-source
-            largement utilisé pour la gestion de parc informatique et le support IT.
-            <br /><br />
-            GLPI a été déployé sur un serveur Linux avec une architecture LAMP
-            (Linux, Apache, MariaDB, PHP) et intégré à un annuaire Active Directory
-            afin de centraliser l’authentification des utilisateurs.
-          </p>
-        </div>
+            <div className="space-y-5 text-slate-200 leading-relaxed">
+              <p>
+                L'épreuve E6 (Conduite d'un projet, mise en œuvre et présentation
+                des solutions) du BTS SIO spécialité SISR évalue la capacité du
+                candidat à gérer et à réaliser un projet lié à l'administration
+                des systèmes et réseaux. Elle repose sur un projet réel ou simulé,
+                souvent basé sur une problématique professionnelle, développé au
+                cours des stages ou dans le cadre de travaux pratiques.
+              </p>
 
-        {/* Mise en œuvre */}
-        <div className="bg-slate-900/80 border border-white/10 rounded-2xl p-6 mb-8">
-          <h3 className="text-xl font-semibold text-cyan-300 mb-3 flex items-center gap-2">
-            <ShieldCheck className="w-5 h-5" />
-            Mise en œuvre technique
-          </h3>
-          <ul className="space-y-2 text-slate-200 text-sm">
-            <li>• Installation et configuration d’un serveur Linux</li>
-            <li>• Mise en place de la pile LAMP (Apache, MariaDB, PHP)</li>
-            <li>• Installation et configuration de GLPI</li>
-            <li>• Sécurisation des accès via HTTPS (certificat SSL)</li>
-            <li>• Intégration de l’authentification LDAP (Active Directory)</li>
-            <li>• Mise en place de l’inventaire automatique (FusionInventory)</li>
-            <li>• Gestion des tickets, des utilisateurs et des équipements</li>
-            <li>• Configuration des notifications par mail</li>
-          </ul>
-        </div>
+              <p>
+                Cette épreuve est composée d'un dossier technique présenté par le
+                candidat, qui documente le contexte, les solutions techniques mises
+                en œuvre, ainsi que la méthodologie utilisée. Lors de l'oral, le
+                candidat doit démontrer ses compétences techniques,
+                organisationnelles et sa capacité à collaborer en équipe tout en
+                argumentant ses choix.
+              </p>
+            </div>
 
-        {/* Compétences */}
-        <div className="bg-slate-900/80 border border-white/10 rounded-2xl p-6 mb-8">
-          <h3 className="text-xl font-semibold text-cyan-300 mb-3">
-            Compétences mobilisées
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {[
-              "A1.1.1",
-              "A1.2.1",
-              "A1.2.3",
-              "A1.3.1",
-              "A1.3.2",
-              "A2.3.1",
-              "A3.2.1",
-              "A4.1.1",
-            ].map((skill) => (
-              <span
-                key={skill}
-                className="text-xs rounded-full border border-cyan-400/50 px-3 py-1 bg-cyan-500/10 text-cyan-100"
+            <div className="mt-8 flex justify-center">
+              <a
+                href="/e6/cahier-des-charges-stadiumcompany.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 text-white font-semibold shadow-lg shadow-cyan-500/20 hover:opacity-95 transition"
               >
-                {skill}
-              </span>
+                <FileText className="w-5 h-5" />
+                Cahier des charges StadiumCompany
+              </a>
+            </div>
+          </div>
+
+          <div className="space-y-12">
+            {realisations.map((realisation, index) => (
+              <div key={realisation.title}>
+                <h3 className="text-2xl font-bold text-cyan-300 mb-6">
+                  {realisation.title} :
+                </h3>
+
+                <div className="space-y-3 ml-0 md:ml-8">
+                  {realisation.links.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 text-slate-100 hover:text-cyan-300 transition"
+                    >
+                      <FolderOpen className="w-4 h-4 text-cyan-300" />
+                      <span className="underline">{link.label}</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  ))}
+                </div>
+
+                {index < realisations.length - 1 && (
+                  <div className="mt-10 border-b border-white/10"></div>
+                )}
+              </div>
             ))}
           </div>
-        </div>
-
-        {/* Livrables */}
-        <div className="bg-slate-900/80 border border-white/10 rounded-2xl p-6">
-          <h3 className="text-xl font-semibold text-cyan-300 mb-3 flex items-center gap-2">
-            <FileText className="w-5 h-5" />
-            Documents et livrables
-          </h3>
-          <p className="text-slate-200 text-sm mb-4">
-            Une documentation complète du projet a été rédigée, comprenant
-            l’architecture, les étapes d’installation, la configuration et les
-            procédures d’utilisation.
-          </p>
-
-          <a
-            href="/documents/projet-glpi.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/60 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-100 hover:bg-cyan-500/20 transition"
-          >
-            📄 Consulter la documentation du projet GLPI
-          </a>
         </div>
       </div>
     </section>

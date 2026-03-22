@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
-import Skills from './components/Skills';
 import Entreprise from './components/Entreprise';
 import E5 from './components/E5';
 import E6 from './components/E6';
@@ -19,7 +18,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Hero />} />
             <Route path="/a-propos" element={<About />} />
-            <Route path="/competences" element={<Skills />} />
             <Route path="/entreprise" element={<Entreprise />} />
             <Route path="/e5" element={<E5 />} />
             <Route path="/e6" element={<E6 />} />

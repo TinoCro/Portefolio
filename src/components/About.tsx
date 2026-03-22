@@ -1,17 +1,74 @@
-import { FileText, Linkedin, GraduationCap } from "lucide-react";
+import {
+  FileText,
+  Linkedin,
+  GraduationCap,
+  Server,
+  Network,
+  Shield,
+  Database,
+  Cloud,
+  Code,
+} from "lucide-react";
 
 export default function APropos() {
+  const skillCategories = [
+    {
+      icon: Server,
+      title: "Systèmes",
+      color: "blue",
+      skills: ["Windows Server", "Linux (Debian, Ubuntu)", "Active Directory", "PowerShell", "Bash"],
+    },
+    {
+      icon: Network,
+      title: "Réseaux",
+      color: "green",
+      skills: ["TCP/IP", "Routage et Commutation", "VLAN", "VPN", "Cisco/PacketTracer"],
+    },
+    {
+      icon: Shield,
+      title: "Sécurité",
+      color: "red",
+      skills: ["Firewall", "Proxy", "Détection d'intrusion", "Politique de sécurité", "Sauvegarde"],
+    },
+    {
+      icon: Database,
+      title: "Bases de données",
+      color: "purple",
+      skills: ["MySQL", "PostgreSQL", "SQL Server", "Conception BDD", "Administration"],
+    },
+    {
+      icon: Cloud,
+      title: "Virtualisation",
+      color: "cyan",
+      skills: ["VMware", "VirtualBox", "Hyper-V", "Docker", "Proxmox"],
+    },
+    {
+      icon: Code,
+      title: "Développement",
+      color: "orange",
+      skills: ["Python", "PHP", "HTML/CSS", "JavaScript", "Git"],
+    },
+  ];
+
+  const colorClasses: Record<string, { text: string; dot: string }> = {
+    blue: { text: "text-blue-400", dot: "bg-blue-500" },
+    green: { text: "text-emerald-400", dot: "bg-emerald-500" },
+    red: { text: "text-rose-400", dot: "bg-rose-500" },
+    purple: { text: "text-indigo-400", dot: "bg-indigo-500" },
+    cyan: { text: "text-cyan-400", dot: "bg-cyan-500" },
+    orange: { text: "text-amber-400", dot: "bg-amber-500" },
+  };
+
   return (
     <section id="apropos" className="py-24 px-4">
-      <div className="max-w-5xl mx-auto">
-
+      <div className="max-w-6xl mx-auto">
         {/* TITRE */}
         <div className="text-center mb-12">
           <p className="text-sm font-semibold text-cyan-300 uppercase tracking-[0.25em]">
             À propos
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
-            Présentation & parcours
+            Présentation, parcours & compétences
           </h2>
           <p className="text-slate-300 max-w-2xl mx-auto">
             Étudiant en BTS SIO option SISR, orienté administration systèmes,
@@ -46,10 +103,34 @@ export default function APropos() {
           </p>
         </div>
 
+        {/* BTS SIO */}
+        <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-8 shadow-lg mb-16">
+          <h3 className="text-2xl font-semibold text-white mb-4 flex items-center gap-2">
+            <GraduationCap className="w-6 h-6 text-cyan-300" />
+            BTS SIO – Option SISR
+          </h3>
+
+          <p className="text-slate-200 leading-relaxed mb-4">
+            Le <strong>BTS Services Informatiques aux Organisations</strong> forme
+            des professionnels capables de gérer, maintenir et sécuriser des
+            infrastructures informatiques au sein des entreprises.
+          </p>
+
+          <p className="text-slate-200 leading-relaxed mb-4">
+            L’option <strong>SISR (Solutions d’Infrastructure, Systèmes et Réseaux)</strong>{" "}
+            est orientée vers l’administration des systèmes, la gestion des
+            réseaux, la virtualisation, la cybersécurité et le support informatique.
+          </p>
+
+          <p className="text-slate-200 leading-relaxed">
+            Cette formation me permet d’acquérir des compétences solides en
+            environnements Windows et Linux, en réseaux Cisco, ainsi qu’en
+            sécurisation des systèmes d’information.
+          </p>
+        </div>
+
         {/* CV + LINKEDIN */}
         <div className="grid md:grid-cols-2 gap-10 mb-20">
-
-          {/* CV */}
           <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-6 shadow-lg">
             <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
               <FileText className="w-5 h-5 text-cyan-300" />
@@ -79,7 +160,6 @@ export default function APropos() {
             </div>
           </div>
 
-          {/* LINKEDIN */}
           <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-6 shadow-lg">
             <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
               <Linkedin className="w-5 h-5 text-cyan-300" />
@@ -103,33 +183,56 @@ export default function APropos() {
           </div>
         </div>
 
-        {/* BTS SIO */}
-        <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-8 shadow-lg">
-          <h3 className="text-2xl font-semibold text-white mb-4 flex items-center gap-2">
-            <GraduationCap className="w-6 h-6 text-cyan-300" />
-            BTS SIO – Option SISR
-          </h3>
+        {/* COMPÉTENCES */}
+        <section className="mb-20">
+          <div className="text-center mb-10">
+            <p className="text-sm font-semibold text-cyan-300 uppercase tracking-[0.25em]">
+              Compétences
+            </p>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mt-2">
+              Compétences techniques
+            </h3>
+            <p className="text-slate-300 max-w-2xl mx-auto mt-3">
+              Systèmes, réseaux, sécurité et outils utilisés dans ma formation
+              et en entreprise.
+            </p>
+          </div>
 
-          <p className="text-slate-200 leading-relaxed mb-4">
-            Le <strong>BTS Services Informatiques aux Organisations</strong> forme
-            des professionnels capables de gérer, maintenir et sécuriser des
-            infrastructures informatiques au sein des entreprises.
-          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {skillCategories.map((category) => {
+              const Icon = category.icon;
+              const colors = colorClasses[category.color];
 
-          <p className="text-slate-200 leading-relaxed mb-4">
-            L’option <strong>SISR (Solutions d’Infrastructure, Systèmes et
-            Réseaux)</strong> est orientée vers l’administration des systèmes,
-            la gestion des réseaux, la virtualisation, la cybersécurité et le
-            support informatique.
-          </p>
+              return (
+                <div
+                  key={category.title}
+                  className="bg-slate-900/60 p-6 rounded-2xl border border-white/10 shadow-sm hover:shadow-lg transition-shadow"
+                >
+                  <div className="flex items-center mb-4">
+                    <Icon className={`w-8 h-8 ${colors.text} mr-3`} />
+                    <h3 className="text-xl font-bold text-white">
+                      {category.title}
+                    </h3>
+                  </div>
 
-          <p className="text-slate-200 leading-relaxed">
-            Cette formation me permet d’acquérir des compétences solides en
-            environnements Windows et Linux, en réseaux Cisco, ainsi qu’en
-            sécurisation des systèmes d’information.
-          </p>
-        </div>
-
+                  <ul className="space-y-2">
+                    {category.skills.map((skill) => (
+                      <li
+                        key={skill}
+                        className="text-slate-100 flex items-center"
+                      >
+                        <span
+                          className={`w-1.5 h-1.5 ${colors.dot} rounded-full mr-2`}
+                        ></span>
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+        </section>
       </div>
     </section>
   );

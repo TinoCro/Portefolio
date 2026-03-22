@@ -36,7 +36,7 @@ const missions: Mission[] = [
       "Tests de connectivité et validation",
     ],
     environment: "Cisco Packet Tracer, routeurs et switchs Cisco",
-    file: "/missions/mission1.pdf",
+    file: "/missions/Mission1_complet.pdf",
     ciscoFile: "/missions/mission1_stadiumcompany.pkt",
   },
   {
@@ -73,8 +73,10 @@ const missions: Mission[] = [
    CARTE MISSION
 ======================= */
 function MissionCard({ mission }: { mission: Mission }) {
-  return (
-    <article className="bg-slate-900/80 border border-white/10 rounded-2xl p-6 shadow-lg">
+  const isWholeCardClickable = [1, 2, 3].includes(mission.id);
+
+  const cardContent = (
+    <article className="bg-slate-900/80 border border-white/10 rounded-2xl p-6 shadow-lg transition hover:border-cyan-400/50 hover:bg-slate-900">
       <div className="flex gap-3 mb-4">
         <div className="bg-cyan-500/20 p-2 rounded-xl">
           <BookOpen className="w-5 h-5 text-cyan-300" />
@@ -83,9 +85,19 @@ function MissionCard({ mission }: { mission: Mission }) {
           <p className="text-xs uppercase tracking-[0.25em] text-cyan-300/80">
             Mission E5 n°{mission.id}
           </p>
-          <h3 className="text-lg font-semibold text-white">
-            {mission.title}
-          </h3>
+
+          {isWholeCardClickable ? (
+            <h3 className="text-lg font-semibold text-white">{mission.title}</h3>
+          ) : (
+            <a
+              href={mission.file}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lg font-semibold text-white hover:text-cyan-300 transition"
+            >
+              {mission.title}
+            </a>
+          )}
         </div>
       </div>
 
@@ -110,7 +122,8 @@ function MissionCard({ mission }: { mission: Mission }) {
           href={mission.file}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-cyan-200 underline"
+          className="text-cyan-200 underline hover:text-cyan-100 transition"
+          onClick={(e) => e.stopPropagation()}
         >
           📄 Ouvrir la fiche mission (PDF)
         </a>
@@ -120,6 +133,7 @@ function MissionCard({ mission }: { mission: Mission }) {
             href={mission.ciscoFile}
             download
             className="flex items-center gap-1 text-emerald-300 underline"
+            onClick={(e) => e.stopPropagation()}
           >
             <Download className="w-4 h-4" />
             Télécharger le scénario Cisco Packet Tracer (.pkt)
@@ -128,6 +142,21 @@ function MissionCard({ mission }: { mission: Mission }) {
       </div>
     </article>
   );
+
+  if (isWholeCardClickable) {
+    return (
+      <a
+        href={mission.file}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+      >
+        {cardContent}
+      </a>
+    );
+  }
+
+  return cardContent;
 }
 
 /* =======================
@@ -137,7 +166,6 @@ export default function E5() {
   return (
     <section id="e5" className="py-24 px-4">
       <div className="max-w-6xl mx-auto">
-
         {/* TITRE */}
         <div className="text-center mb-12">
           <p className="text-sm font-semibold text-cyan-300 uppercase tracking-[0.25em]">
@@ -147,99 +175,13 @@ export default function E5() {
             Dossier professionnel – Épreuve E5
           </h2>
           <p className="text-slate-300 max-w-3xl mx-auto text-sm md:text-base">
-            Présentation des missions principales, de l’alternance et du tableau de synthèse officiel.
+            Présentation des missions principales, de l’alternance et du tableau
+            de synthèse officiel.
           </p>
         </div>
 
-        {/* MISSIONS */}
-        <div className="space-y-6 mb-20">
-          {missions.map((m) => (
-            <MissionCard key={m.id} mission={m} />
-          ))}
-        </div>
-
-        {/* =======================
-            ENTREPRISE / ALTERNANCE
-        ======================= */}
+        {/* TABLEAU DE SYNTHÈSE */}
         <section className="mb-20">
-          <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-2">
-            <Building2 className="w-6 h-6 text-cyan-300" />
-            Entreprise / Alternance
-          </h3>
-
-          <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-7 shadow-lg">
-            <p className="text-slate-200 mb-4 leading-relaxed">
-              Dans le cadre de mon <strong>BTS SIO option SISR</strong>, je réalise
-              mon alternance au sein de l’entreprise <strong>Rely</strong>,
-              joint-venture entre <strong>Technip Energies</strong> et
-              <strong> John Cockerill Hydrogen</strong>, en tant que
-              <strong> IT Support</strong>.
-            </p>
-
-            <h4 className="text-cyan-300 font-semibold mb-2">
-              Activités professionnelles réalisées
-            </h4>
-
-            <ul className="space-y-2 text-sm text-slate-100 mb-6">
-              <li>• Support utilisateurs niveau 1 et 2</li>
-              <li>• Gestion de comptes et accès Active Directory / SharePoint</li>
-              <li>• Installation et configuration de logiciels métier</li>
-              <li>• Gestion des licences et du parc matériel</li>
-              <li>• Formation et accompagnement des utilisateurs</li>
-            </ul>
-
-            {/* PROCÉDURE ONBOARDING */}
-            <div className="border-t border-white/10 pt-6 mb-6">
-              <h4 className="text-cyan-300 font-semibold mb-2">
-                Procédure d’onboarding IT – Rely
-              </h4>
-
-              <p className="text-slate-200 text-sm mb-4 leading-relaxed">
-                J’ai rédigé une procédure d’onboarding IT destinée à accompagner
-                l’arrivée des nouveaux collaborateurs. Elle permet de
-                standardiser l’accès aux services informatiques et de réduire
-                les demandes récurrentes adressées au support IT.
-              </p>
-
-              <a
-                href="/entreprise/rely_onboarding_it.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/60 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-100 hover:bg-cyan-500/20 transition"
-              >
-                📄 Consulter la procédure d’onboarding IT (PDF)
-              </a>
-            </div>
-
-            {/* FORMATION PAPERBOARD */}
-            <div className="border-t border-white/10 pt-6">
-              <h4 className="text-cyan-300 font-semibold mb-2">
-                Formation à l’utilisation du paperboard numérique Samsung
-              </h4>
-
-              <p className="text-slate-200 text-sm mb-4 leading-relaxed">
-                J’ai également animé une formation à destination de plusieurs
-                utilisateurs sur l’utilisation du paperboard numérique Samsung,
-                afin de faciliter son adoption et son usage lors des réunions et
-                sessions collaboratives.
-              </p>
-
-              <a
-                href="/entreprise/rely_formation_paperboard_samsung.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/60 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-100 hover:bg-cyan-500/20 transition"
-              >
-                📄 Consulter le support de formation (PDF)
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* =======================
-            TABLEAU DE SYNTHÈSE
-        ======================= */}
-        <section>
           <h3 className="text-2xl font-semibold text-white mb-6 text-center">
             Tableau de synthèse – Annexe 8-1 (Épreuve E5)
           </h3>
@@ -276,6 +218,87 @@ export default function E5() {
           </div>
         </section>
 
+        {/* MISSIONS */}
+        <div className="space-y-6 mb-20">
+          {missions.map((m) => (
+            <MissionCard key={m.id} mission={m} />
+          ))}
+        </div>
+
+        {/* ENTREPRISE / ALTERNANCE */}
+        <section className="mb-20">
+          <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-2">
+            <Building2 className="w-6 h-6 text-cyan-300" />
+            Entreprise / Alternance
+          </h3>
+
+          <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-7 shadow-lg">
+            <p className="text-slate-200 mb-4 leading-relaxed">
+              Dans le cadre de mon <strong>BTS SIO option SISR</strong>, je
+              réalise mon alternance au sein de l’entreprise{" "}
+              <strong>Rely</strong>, joint-venture entre{" "}
+              <strong>Technip Energies</strong> et
+              <strong> John Cockerill Hydrogen</strong>, en tant que
+              <strong> IT Support</strong>.
+            </p>
+
+            <h4 className="text-cyan-300 font-semibold mb-2">
+              Activités professionnelles réalisées
+            </h4>
+
+            <ul className="space-y-2 text-sm text-slate-100 mb-6">
+              <li>• Support utilisateurs niveau 1 et 2</li>
+              <li>• Gestion de comptes et accès Active Directory / SharePoint</li>
+              <li>• Installation et configuration de logiciels métier</li>
+              <li>• Gestion des licences et du parc matériel</li>
+              <li>• Formation et accompagnement des utilisateurs</li>
+            </ul>
+
+            <div className="border-t border-white/10 pt-6 mb-6">
+              <h4 className="text-cyan-300 font-semibold mb-2">
+                Procédure d’onboarding IT – Rely
+              </h4>
+
+              <p className="text-slate-200 text-sm mb-4 leading-relaxed">
+                J’ai rédigé une procédure d’onboarding IT destinée à accompagner
+                l’arrivée des nouveaux collaborateurs. Elle permet de
+                standardiser l’accès aux services informatiques et de réduire
+                les demandes récurrentes adressées au support IT.
+              </p>
+
+              <a
+                href="/entreprise/rely_onboarding_it.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/60 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-100 hover:bg-cyan-500/20 transition"
+              >
+                📄 Consulter la procédure d’onboarding IT (PDF)
+              </a>
+            </div>
+
+            <div className="border-t border-white/10 pt-6">
+              <h4 className="text-cyan-300 font-semibold mb-2">
+                Formation à l’utilisation du paperboard numérique Samsung
+              </h4>
+
+              <p className="text-slate-200 text-sm mb-4 leading-relaxed">
+                J’ai également animé une formation à destination de plusieurs
+                utilisateurs sur l’utilisation du paperboard numérique Samsung,
+                afin de faciliter son adoption et son usage lors des réunions et
+                sessions collaboratives.
+              </p>
+
+              <a
+                href="/entreprise/rely_formation_paperboard_samsung.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/60 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-100 hover:bg-cyan-500/20 transition"
+              >
+                📄 Consulter le support de formation (PDF)
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
   );
