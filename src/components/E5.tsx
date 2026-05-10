@@ -5,6 +5,7 @@ import {
   FileSpreadsheet,
   FileText,
   Building2,
+  FolderOpen,
 } from "lucide-react";
 
 /* =======================
@@ -18,6 +19,15 @@ interface Mission {
   environment: string;
   file: string;
   ciscoFile?: string;
+}
+
+interface TrainingDocument {
+  id: number;
+  category: string;
+  title: string;
+  description: string;
+  technologies: string[];
+  file: string;
 }
 
 /* =======================
@@ -66,6 +76,39 @@ const missions: Mission[] = [
     ],
     environment: "Cisco Packet Tracer, routeurs Cisco ISR",
     file: "/missions/mission3.pdf",
+  },
+];
+
+/* =======================
+   AUTRES RÉALISATIONS
+======================= */
+const trainingDocuments: TrainingDocument[] = [
+  {
+    id: 1,
+    category: "Supervision réseau",
+    title: "Nagios XI — Supervision réseau StadiumCompany",
+    description:
+      "Ce document présente la mise en place d’une solution de supervision avec Nagios XI pour surveiller les serveurs critiques de StadiumCompany. Il détaille la configuration des hôtes et services supervisés, les problèmes rencontrés, ainsi que les résultats obtenus avec la détection des pannes et la supervision centralisée de l’infrastructure.",
+    technologies: ["Nagios XI", "Supervision", "VMware", "pfSense"],
+    file: "/missions/Nagios_Livrable.pdf",
+  },
+  {
+    id: 2,
+    category: "Gestion de parc",
+    title: "Administration OCS/GLPI",
+    description:
+      "Ce document présente la mise en place d’une solution de gestion de parc informatique avec OCS Inventory et GLPI. Il détaille l’installation des serveurs, l’inventaire des machines, le déploiement de l’agent OCS ainsi que l’intégration d’un environnement Windows Server pour centraliser le suivi du matériel et des équipements.",
+    technologies: ["GLPI", "OCS Inventory", "Debian", "Windows Server"],
+    file: "/missions/Livrable GLPI.pdf",
+  },
+  {
+    id: 3,
+    category: "Haute disponibilité",
+    title: "Redondance et Load Balancing avec HAProxy",
+    description:
+      "Ce document présente la mise en place d’une solution de haute disponibilité et de répartition de charge avec HAProxy et Heartbeat sous Debian. Il explique la configuration des serveurs web, de l’adresse IP virtuelle, des tests de bascule ainsi que la continuité de service en cas de panne.",
+    technologies: ["HAProxy", "Heartbeat", "Debian 12", "Apache2"],
+    file: "/missions/Livrable HAProxy.pdf",
   },
 ];
 
@@ -160,6 +203,67 @@ function MissionCard({ mission }: { mission: Mission }) {
 }
 
 /* =======================
+   CARTE DOCUMENT
+======================= */
+function TrainingDocumentCard({
+  document,
+}: {
+  document: TrainingDocument;
+}) {
+  const cardContent = (
+    <article className="bg-slate-900/80 border border-white/10 rounded-2xl p-6 shadow-lg transition hover:border-cyan-400/50 hover:bg-slate-900 h-full">
+      <div className="flex gap-3 mb-4">
+        <div className="bg-cyan-500/20 p-2 rounded-xl">
+          <FolderOpen className="w-5 h-5 text-cyan-300" />
+        </div>
+        <div>
+          <p className="text-xs uppercase tracking-[0.25em] text-cyan-300/80">
+            {document.category}
+          </p>
+          <h3 className="text-lg font-semibold text-white">{document.title}</h3>
+        </div>
+      </div>
+
+      <p className="text-slate-200 text-sm mb-4 leading-relaxed">
+        {document.description}
+      </p>
+
+      <div className="flex flex-wrap gap-2 mb-4">
+        {document.technologies.map((tech) => (
+          <span
+            key={tech}
+            className="px-2 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-200"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      <a
+        href={document.file}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-cyan-200 underline hover:text-cyan-100 transition"
+        onClick={(e) => e.stopPropagation()}
+      >
+        📄 Voir la documentation
+      </a>
+    </article>
+  );
+
+  return (
+    <a
+      href={document.file}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block h-full"
+    >
+      {cardContent}
+    </a>
+  );
+}
+
+/* =======================
    PAGE E5
 ======================= */
 export default function E5() {
@@ -219,11 +323,30 @@ export default function E5() {
         </section>
 
         {/* MISSIONS */}
-        <div className="space-y-6 mb-20">
-          {missions.map((m) => (
-            <MissionCard key={m.id} mission={m} />
-          ))}
-        </div>
+        <section className="mb-20">
+          <h3 className="text-2xl font-semibold text-white mb-6">
+            Missions principales
+          </h3>
+
+          <div className="space-y-6">
+            {missions.map((m) => (
+              <MissionCard key={m.id} mission={m} />
+            ))}
+          </div>
+        </section>
+
+        {/* AUTRES RÉALISATIONS */}
+        <section className="mb-20">
+          <h3 className="text-2xl font-semibold text-white mb-6">
+            Autres réalisations en cours de formation
+          </h3>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {trainingDocuments.map((doc) => (
+              <TrainingDocumentCard key={doc.id} document={doc} />
+            ))}
+          </div>
+        </section>
 
         {/* ENTREPRISE / ALTERNANCE */}
         <section className="mb-20">
